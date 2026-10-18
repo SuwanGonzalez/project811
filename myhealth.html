@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Morning Mission ☀️</title>
+<style>
+:root{--ink:#f4f0dc;
+  --muted:#c5c9b7;
+  --paper:#18251c;
+  --card:#26392b;
+  --pink:#d85c68;
+  --peach:#d5a85b;
+  --lav:#667c55;
+  --green:#8fbd73;
+  --red:#a52b4a;
+  --line:#405441}
+*{box-sizing:border-box}body{margin:0;
+  background-color:#231717;
+  background-image:linear-gradient(45deg,#332020 25%,transparent 25%),linear-gradient(-45deg,#332020 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#332020 75%),linear-gradient(-45deg,transparent 75%,#332020 75%);
+  background-size:32px 32px;background-position:0 0,0 16px,16px -16px,-16px 0;color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+header{padding:28px 18px 20px;text-align:center;
+  background:#231717e8;
+  border-bottom:4px solid #6c4343
+}
+header .eyebrow {
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-size:.76rem;
+  font-weight:900;
+  color:#d27d7d
+}
+h1 {
+  font-size:clamp(2rem,7vw,3.5rem);
+  line-height:1.05;
+  margin:8px 0}
+header p {
+  margin:10px auto;
+  max-width:650px;
+  color:var(--muted)}
+main {
+  max-width:1050px;
+  margin:auto;
+  padding:0 16px 40px
+}
+.topline {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:14px
+}
+.pill {
+  background:#392626;
+  border:2px solid #6c4343;
+  border-radius:8px;
+  padding:8px 12px;
+  font-size:.9rem}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:14px
+}
+.card{background:#392626;
+  border:3px solid #6c4343;
+  border-radius:8px;
+  padding:20px;
+  box-shadow:5px 5px 0 #1a1010;
+  grid-column:span 6;
+  min-width:0
+}
+.wide {
+  grid-column:span 12
+}
+.third {
+  grid-column:span 4
+}
+.card h2 {
+  margin:0 0 5px;
+  font-size:1.25rem
+}
+.sub {
+  color:var(--muted);
+  font-size:.92rem;
+  margin:0 0 14px
+}
+.hero {
+  background:linear-gradient(120deg,#4b3030,#392626);
+  border-color:#d27d7d}
+.character {
+  display:flex;
+  gap:16px;align-items:center
+}
+.avatar {
+  font-size:4rem;
+  line-height:1;
+  background:#251818;
+  border:3px solid #d27d7d;
+  border-radius:8px;
+  padding:13px
+}
+.progress {
+  height:12px;
+  background:#231717;
+  border:2px solid #6c4343;
+  border-radius:3px;
+  overflow:hidden;
+  margin:12px 0 5px
+}
+.progress span {
+  display:block;
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#d27d7d,#e5c45d);
+  transition:width .2s
+}
+.button {
+  border:2px solid #d27d7d;
+  border-radius:6px;
+  background:#d27d7d;
+  color:#18251c;
+  padding:11px 14px;
+  font-weight:850;
+  cursor:pointer;
+  min-height:44px
+}
+.button.secondary {
+  background:#4a3434;
+  color:var(--ink);
+  border:2px solid #6c4343
+}
+.button:focus-visible,input:focus-visible {
+  outline:3px solid #9c86e8;
+  outline-offset:2px
+}
+.checklist {
+  display:grid;
+  gap:10px
+}
+.check {
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  background:#2d1d1d;
+  border:1px solid #6c4343;
+  border-radius:6px;
+  padding:13px;
+  min-height:52px
+}
+.check input {
+  margin-top:4px;
+  accent-color:#d27d7d;
+  width:22px;
+  height:22px;
+  flex-shrink:0
+}
+.check label {
+  flex:1
+}
+.check small {
+  display:block;
+  color:var(--muted);
+  font-size:.85rem
+}
+.weatherbox {
+  display:flex;
+  align-items:center;
+  gap:18px;background:#2d1d1d;
+  border:1px solid #6c4343;
+  border-radius:8px;
+  padding:15px
+}
+.weathericon {
+  font-size:2.8rem
+}
+.temp {
+  font-size:2.3rem;
+  font-weight:850;
+  line-height:1
+}
+.weatherstats {
+  display:grid; 
+  grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px
+}
+.stat {
+  background:#2d1d1d;
+  border:1px solid #6c4343;
+  border-radius:6px;
+  padding:10px
+}
+.stat b {
+  display:block;
+  font-size:1.05rem
+}
+.stat span {
+  color:var(--muted);
+  font-size:.78rem
+}
+.routine-list {
+  padding-left:20px;
+  margin:12px 0
+}
+.routine-list li {
+  padding:4px 0
+}
+.meal {
+  border:1px solid #6c4343;
+  border-radius:6px;
+  padding:13px;
+  background:#2d1d1d;
+  margin:8px 0
+} 
+.meal strong {
+  display:block
+}
+.note {
+  background:#3b3b25;
+  border:1px solid #817e48;
+  border-radius:6px;
+  padding:12px;
+  font-size:.9rem
+}
+.small {
+  font-size:.82rem;
+  color:var(--muted)
+}
+.field {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap
+}
+.field input {
+  flex:1;
+  min-width:150px;
+  border:2px solid #6c4343;
+  background:#231717;
+  color:var(--ink);
+  border-radius:6px;
+  padding:11px;
+  font:inherit;
+  min-height:44px
+}
+.weekdays {
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin:12px 0
+}
+.daybtn {
+  border:2px solid #6c4343;
+  background:#2d1d1d;
+  color:var(--ink);
+  border-radius:5px;
+  padding:9px 12px;
+  cursor:pointer;
+  min-height:44px
+}
+.daybtn.active {
+  background:#d27d7d;
+  color:#251818;
+  border-color:#d27d7d;
+  font-weight:800
+}
+.footer {
+  text-align:center;
+  color:var(--muted);
+  padding:22px;
+  font-size:.85rem
+}
+@media (max-width:720px) {
+  main{padding:0 10px 28px}
+  .card,
+  .third{grid-column:span 12;padding:16px}
+  .character{align-items:flex-start}
+  .avatar{font-size:3.2rem;padding:9px}
+  .weatherstats{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stat{padding:8px 6px}
+  .topline{align-items:stretch}
+  .pill{font-size:.82rem}
+  header{padding:24px 14px 18px}
+  .button{width:auto}.check{padding:12px}
+  .grid{gap:12px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">⛏️ THE ULTIMATE NETHER TRAINING CAMP · QUEST LOG ⛏️</div>
+  <h1>Today's Mission ⛏️</h1>
+  <p>Level up your real-life character: complete quests, earn XP, and make mornings feel less chaotic.</p>
+</header>
+<main>
+  <div class="topline"><span class="pill" id="todayLabel">Loading today's mission…</span><span class="pill" id="streakLabel">✨ 0 mission points</span></div>
+  <section class="grid">
+    <article class="card hero wide">
+      <div class="character">
+        <div class="avatar" id="avatar" aria-label="Your mascot">🐣</div>
+        <div style="flex:1">
+          <h2 id="characterTitle">Meet your little sidekick</h2>
+          <p id="characterText" class="sub">Every completed step earns points. Rest days and missed days are part of real life, too.</p>
+          <div class="progress"><span id="progressBar"></span></div>
+          <div class="small" id="progressText">0 points · next mascot mood at 30</div>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <h2>🌦️ Tomorrow morning</h2>
+      <p class="sub">Forecast for around 5:30 AM. Enter a city or use your browser's location.</p>
+      <div class="field"><input id="cityInput" value="Hayward, CA" placeholder="City, e.g. Hayward, CA" aria-label="City for weather"><button class="button" id="weatherBtn">Get forecast</button></div>
+      <div id="weatherResult" style="margin-top:14px"><p class="small">Weather will appear here. You need an internet connection to load the forecast.</p></div>
+      <p class="small">Weather powered by Open-Meteo. Forecasts can change; check again before heading out.</p>
+    </article>
+    <article class="card">
+      <h2>🏃 Today's movement</h2>
+      <p class="sub" id="workoutSubtitle">A gentle plan based on the day of the week.</p>
+      <div id="workoutPlan"></div>
+      <div class="note" style="margin-top:12px">Start easy. If you're tired, sore, unwell, or the weather feels unsafe, shorten the route or swap in an indoor walk. Consistency is not punishment.</div>
+    </article>
+    
+    <article class="card">
+      <h2>🌤️ Morning routine</h2>
+      <p class="sub">A realistic timeline for a 5:00–5:15 AM wake-up.</p>
+      <div class="checklist">
+        <div class="check"><input type="checkbox" class="morning"><label>5:00–5:15 · Wake up, bathroom, water<small>Check weather and how you feel before leaving.</small></label></div>
+        <div class="check"><input type="checkbox" class="morning"><label>5:15 · Optional turmeric drink / small bite<small>Keep it gentle on your stomach; the shot is optional, not a requirement.</small></label></div>
+        <div class="check"><input type="checkbox" class="morning"><label>5:30 · Start easy toward the park<small>Use a familiar, well-lit route; carry a phone and tell someone your plan.</small></label></div>
+        <div class="check"><input type="checkbox" class="morning"><label>At the park · Turn around and walk home<small>Adjust distance and pace to the time you have.</small></label></div>
+        <div class="check"><input type="checkbox" class="morning"><label>6:30 · Shower, skincare, get dressed</label></div>
+        <div class="check"><input type="checkbox" class="morning"><label>Breakfast + probiotic/prebiotic if appropriate</label></div>
+        <div class="check"><input type="checkbox" class="morning"><label>7:30 leave / 7:45 ride target</label></div>
+      </div>
+    </article>
+    <article class="card">
+      <h2>🫧 Simple skin-care routine</h2>
+      <p class="sub">Gentle and consistent beats using lots of products.</p>
+      <h3>Morning</h3>
+      <ol class="routine-list"><li>Wash with a gentle cleanser, or rinse if your skin is dry.</li><li>Use a fragrance-free moisturizer.</li><li>Apply broad-spectrum SPF 30+ sunscreen.</li></ol>
+      <h3>Night</h3>
+      <ol class="routine-list"><li>Gently remove sunscreen/makeup and cleanse.</li><li>Moisturize; avoid scrubs and adding several new actives at once.</li><li>Change pillowcase regularly and keep hands off irritated spots.</li></ol>
+      <div class="note">If your skin is suddenly much worse, painful, swollen, very itchy, or leaving scars, ask a healthcare professional or dermatologist. A simple routine is a good start, but it may not treat the cause.</div>
+    </article>
+    <article class="card wide">
+      <h2>🍊 Easy, budget-friendly food plan</h2>
+      <p class="sub">Mix and match. No special diet or expensive ingredients required.</p>
+      <div class="grid">
+        <div class="third"><div class="meal"><strong>Breakfast</strong>Grapefruit + eggs and toast, or Greek yogurt with oats.</div></div>
+        <div class="third"><div class="meal"><strong>Lunch</strong>Bean-and-cheese burrito, rice bowl, or leftovers with frozen vegetables.</div></div>
+        <div class="third"><div class="meal"><strong>Dinner</strong>Chicken or beans, rice, and frozen vegetables; season with salsa, garlic, or lemon.</div></div>
+        <div class="third"><div class="meal"><strong>Snack</strong>Apple and peanut butter, yogurt, cheese and crackers, or nuts.</div></div>
+        <div class="third"><div class="meal"><strong>Prep once</strong>Cook a pot of rice/beans and boil a few eggs for quick meals.</div></div>
+        <div class="third"><div class="meal"><strong>Shopping basics</strong>Eggs, oats, rice, beans, tortillas, frozen veg, yogurt, fruit, and a protein you enjoy.</div></div>
+      </div>
+      <div class="note"><strong>Quick safety note:</strong> Since you do not currently take medication, grapefruit interactions may not be a concern for you right now; if that changes, check with a pharmacist before making it a daily breakfast. Lemon, black pepper, apple-cider vinegar, and turmeric shots are not necessary for health; vinegar can irritate your throat/stomach and affect tooth enamel, so don't drink it undiluted. You don't need to wait 30 minutes for a supplement unless its label or your clinician says so. Probiotics/prebiotics are optional; follow product directions and ask a pharmacist/clinician if you take medication or have a health condition.</div>
+    </article>
+    <article class="card">
+      <h2>🎒 Night-before launch pad</h2>
+      <p class="sub">Set tomorrow-you up for an easy exit.</p>
+      <div class="checklist" id="nightChecklist">
+        <div class="check"><input type="checkbox" id="n1"><label for="n1">Set out run clothes and comfortable shoes<small>Include a light layer if the forecast is cool.</small></label></div>
+        <div class="check"><input type="checkbox" id="n2"><label for="n2">Pack school clothes, bag, keys, and wallet</label></div>
+        <div class="check"><input type="checkbox" id="n3"><label for="n3">Fill water bottle and prep breakfast</label></div>
+        <div class="check"><input type="checkbox" id="n4"><label for="n4">Check weather, route, and sunrise/light</label></div>
+        <div class="check"><input type="checkbox" id="n5"><label for="n5">Set alarms and aim for enough sleep</label></div>
+      </div>
+      <button class="button secondary" id="resetNight" style="margin-top:12px">Reset checklist</button>
+    </article>
+    <article class="card wide">
+      <h2>📅 Weekly workout rhythm</h2>
+      <p class="sub">School is Monday–Wednesday; brother drop-offs are Thursday–Friday. The first version is intentionally light and can be changed.</p>
+      <div class="weekdays" id="dayButtons"></div>
+      <div id="selectedDayPlan"></div>
+      <p class="small">The park trip is a starting idea, not a test. If the Google estimate is 25 minutes one way, the round trip may be longer than an hour once you include the walk home and transitions. Time the first outing and set a firm turn-around time so school and family responsibilities still fit.</p>
+    </article>
+  </section>
+  <div class="footer">You don't have to earn rest, food, or kindness. One small mission is still a win. 💛</div>
+</main>
+<script>
+const dayNames=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const plans={
+Sunday:{title:"Day 7 · Rest / save your energy",text:"Rest is part of the plan. Optional gentle stretching or a relaxed walk if it feels good.",work:"No strength workout today. Recover, hydrate, and prep for the week."},
+Monday:{title:"Day 1 · Push",text:"Chest, shoulders, and triceps. Keep every rep controlled and stop before your form breaks.",work:"2 rounds: incline push-ups against a sturdy counter (6–10), backpack shoulder press with a light load (8–10), wall push-ups (8–12). Rest 45–90 seconds as needed."},
+Tuesday:{title:"Day 2 · Pull",text:"Back and biceps. A backpack makes a simple home option; keep it light and secure.",work:"2 rounds: backpack rows (8–12), reverse snow angels lying face-down (8–10), backpack biceps curls (8–12). Keep your back comfortable and move slowly."},
+Wednesday:{title:"Day 3 · Legs",text:"A short lower-body session that doesn't require a gym.",work:"2 rounds: chair squats (8–12), glute bridges (10–12), calf raises (12–15). Hold a wall or chair for balance if needed."},
+Thursday:{title:"Day 4 · Push",text:"Repeat the push pattern, with your brother drop-off schedule in mind. One round is still a win.",work:"1–2 rounds: incline push-ups (6–10), light backpack shoulder press (8–10), wall push-ups (8–12)."},
+Friday:{title:"Day 5 · Pull",text:"Keep it brief so the morning stays flexible around drop-offs.",work:"1–2 rounds: backpack rows (8–12), reverse snow angels (8–10), light backpack curls (8–12)."},
+Saturday:{title:"Day 6 · Legs",text:"Your second legs day. Choose the easier version if you're sore from the week.",work:"2 rounds: chair squats (8–12), glute bridges (10–12), calf raises (12–15). Finish with a gentle stretch if it feels good."}
+};
+const today=new Date(); const day=today.getDay();
+document.getElementById("todayLabel").textContent=`${dayNames[day]} · ${today.toLocaleDateString(undefined,{month:"short",day:"numeric"})}`;
+document.getElementById("workoutPlan").innerHTML=`<h3>${plans[dayNames[day]].title}</h3><p>${plans[dayNames[day]].text}</p><p><strong>Mission:</strong> ${plans[dayNames[day]].work}</p>`;
+const dayButtons=document.getElementById("dayButtons"), selected=document.getElementById("selectedDayPlan");
+dayNames.forEach((name,i)=>{const b=document.createElement("button");b.className="daybtn"+(i===day?" active":"");b.textContent=name.slice(0,3);b.onclick=()=>{document.querySelectorAll(".daybtn").forEach(x=>x.classList.remove("active"));b.classList.add("active");selected.innerHTML=`<h3>${name}: ${plans[name].title}</h3><p>${plans[name].text}</p><strong>${plans[name].work}</strong>`};dayButtons.appendChild(b)});
+selected.innerHTML=`<h3>${dayNames[day]}: ${plans[dayNames[day]].title}</h3><p>${plans[dayNames[day]].text}</p><strong>${plans[dayNames[day]].work}</strong>`;
+let points=Number(localStorage.getItem("missionPoints")||0);
+function paintPoints(){document.getElementById("streakLabel").textContent=`✨ ${points} mission points`;let level=Math.floor(points/30);let avatars=["🐣","🐥","🐤","🦊","🐻","🐯","🐉"];let titles=["Tiny Starter","Curious Explorer","Park Pal","Trail Buddy","Steady Hero","Bright Adventurer","Legendary Sidekick"];let i=Math.min(level,avatars.length-1);document.getElementById("avatar").textContent=avatars[i];document.getElementById("characterTitle").textContent=titles[i];document.getElementById("characterText").textContent=["Small starts count. Your sidekick is cheering for you!","You showed up. That's a win.","You're building a routine one step at a time.","Look at you collecting little wins!","Steady, not perfect. Keep going at your pace.","You've practiced showing up for yourself.","Legendary energy: flexible, kind, and consistent."][i];document.getElementById("progressBar").style.width=`${points%30/30*100}%`;document.getElementById("progressText").textContent=`${points%30} / 30 points toward the next mascot mood`; }
+paintPoints();
+document.querySelectorAll('input[type="checkbox"]').forEach((el,i)=>{const key="missionCheck_"+el.id+"_"+i;el.checked=localStorage.getItem(key)==="1";el.addEventListener("change",()=>{localStorage.setItem(key,el.checked?"1":"0");if(el.checked){points+=2;localStorage.setItem("missionPoints",points)}paintPoints()})});
+document.getElementById("resetNight").onclick=()=>{document.querySelectorAll("#nightChecklist input").forEach(el=>{el.checked=false;localStorage.setItem("missionCheck_"+el.id+"_"+[...document.querySelectorAll('input[type="checkbox"]')].indexOf(el),"0")})};
+async function getWeather(){
+ const result=document.getElementById("weatherResult"), city=document.getElementById("cityInput").value.trim();
+ result.innerHTML="<p>⏳ Loading forecast…</p>";
+ try{
+  if(!city)throw new Error("Type a city name first, such as Hayward, CA.");
+  const gResponse=await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`);
+  if(!gResponse.ok)throw new Error("The location service is unavailable right now. Try again in a moment.");
+  const g=await gResponse.json();
+  if(!g.results?.length)throw new Error("I couldn't find that place. Try a nearby city name, like Hayward, CA.");
+  const place=g.results[0], lat=place.latitude, lon=place.longitude, label=[place.name,place.admin1].filter(Boolean).join(", ");
+  const url=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,precipitation_probability,wind_speed_10m,weather_code&daily=sunrise,sunset&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=auto&forecast_days=3`;
+  const response=await fetch(url);
+  if(!response.ok)throw new Error("The forecast service didn't respond. Check your connection and try again.");
+  const data=await response.json();
+  if(!data.hourly?.time?.length)throw new Error("The forecast didn't include hourly data. Please try again later.");
+  // Open-Meteo timestamps are in the requested location's local timezone. Match the date text directly to avoid timezone parsing bugs.
+  const now=new Date(), tomorrow=new Date(now.getFullYear(),now.getMonth(),now.getDate()+1);
+  const dateKey=`${tomorrow.getFullYear()}-${String(tomorrow.getMonth()+1).padStart(2,"0")}-${String(tomorrow.getDate()).padStart(2,"0")}`;
+  let idx=data.hourly.time.findIndex(t=>t.startsWith(dateKey+"T05:"));
+  if(idx<0)idx=data.hourly.time.findIndex(t=>t.startsWith(dateKey+"T06:"));
+  if(idx<0)idx=data.hourly.time.findIndex(t=>t.startsWith(dateKey+"T04:"));
+  if(idx<0)idx=Math.min(5,data.hourly.time.length-1);
+  const temp=Math.round(data.hourly.temperature_2m[idx]),rain=data.hourly.precipitation_probability?.[idx]??0,wind=Math.round(data.hourly.wind_speed_10m[idx]),code=data.hourly.weather_code[idx];
+  const wx=code===0?"☀️":([1,2].includes(code)?"🌤️":code===3?"☁️":[45,48].includes(code)?"🌫️":[51,53,55,61,63,65,80,81,82].includes(code)?"🌧️":[71,73,75,77,85,86].includes(code)?"❄️":"🌦️");
+  let advice=rain>=50?"Bring a waterproof layer and consider an indoor option.":temp<45?"Wear warm layers and protect your hands.":wind>=15?"Expect a breezy morning; add a light layer.":"Check how it feels outside and dress in comfortable layers.";
+  let sunrise="Check local sunrise";
+  const sunriseEntry=data.daily?.sunrise?.find(t=>t.startsWith(dateKey));
+  if(sunriseEntry){const timePart=sunriseEntry.split("T")[1];const [hh,mm]=timePart.split(":").map(Number);const d=new Date();d.setHours(hh,mm,0,0);sunrise=d.toLocaleTimeString([],{hour:"numeric",minute:"2-digit"});}
+  result.innerHTML=`<div class="weatherbox"><div class="weathericon">${wx}</div><div><div class="small">${label} · tomorrow around 5–6 AM</div><div class="temp">${temp}°F</div><div>${advice}</div></div></div><div class="weatherstats"><div class="stat"><b>${rain}%</b><span>Chance of rain</span></div><div class="stat"><b>${wind} mph</b><span>Wind</span></div><div class="stat"><b>${sunrise}</b><span>Sunrise</span></div></div>`;
+ }catch(e){result.innerHTML=`<p>⚠️ ${e.message||"Weather couldn't load right now."}</p><p class="small">Make sure you're online. If you opened the file inside a preview window, try downloading it and opening it directly in Chrome, Safari, or Firefox.</p>`}
+}
+document.getElementById("weatherBtn").onclick=getWeather;
+document.getElementById("cityInput").addEventListener("keydown",e=>{if(e.key==="Enter")getWeather()});
+// Load a starter forecast immediately so the weather panel is not blank on first open.
+getWeather();
+</script>
+</body>
+</html>
